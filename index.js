@@ -13,9 +13,10 @@ import App4 from './StylingLayouts/App4';
 
 import HomeScreen from './CoreComponents/HomeScreen'
 import ShoppingList from './CoreComponents/ShoppingList'
+import Counter from './State/Counter'
 
 import {name as appName} from './app.json';
 //pull için ekleme
 
 
-AppRegistry.registerComponent(appName, () => HomeScreen);
+AppRegistry.registerComponent(appName, () => Counter);

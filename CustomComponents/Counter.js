@@ -1,66 +1,32 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
-/*
-// Array destructering açıklaması
-const arr = [
-    {id: 0},
-    () => {},
-]
-// aşağıdaki iki şey aynı
-// 1
-const [obj, func] = arr;
-// 2
-const obj = arr[0];
-const func = arr[1];
-*/
+import CounterButton from './CounterButton';
 
 
 const Counter = props => {
 
-    // Array destructuring
     let [ num, setNum ] = useState(0);
-
-    // const [ degiskenAdi, degiskenDegistirmeFonks ] = useState(baslangicDegeri);
     
     const onPress_Increase = () => {
-
         setNum(num + 1);
-
     }
 
     const onPress_Decrease = () => {
-        console.log('Azalta basıldı');
-        // setNum(num - 1);
-
         if (num > -15) {
             setNum(num - 1);
         }
-    }
-
-    const renderNumPad = () => {
-        let numComponent =[];
-        for (let i = 1; i < 10; i++){
-            numComponent.push(
-                <Text key={i}>{i}</Text>
-            )
-        }
-        return numComponent; 
     }
 
     return (
         <View style={styles.container}>
             <Text style={styles.numberText}>{num}</Text>
             <View style={styles.buttonsContainer}>
-                <View>
-                    {renderNumPad()}
-                </View>
-                <TouchableOpacity style={styles.touchable} onPress={onPress_Increase}>
-                    <Text style={styles.buttonText}>ARTTIR</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.touchable} onPress={onPress_Decrease}>
-                    <Text style={styles.buttonText}>AZALT</Text>
-                </TouchableOpacity>
+                <CounterButton 
+                    buttonText="ARTTIR"
+                    onPressButton={onPress_Increase} />
+                <CounterButton 
+                    buttonText="AZALT"
+                    onPressButton={onPress_Decrease} />
             </View>
         </View>
     );
